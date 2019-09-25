@@ -16,7 +16,7 @@ name: A workflow for my Hello World Action
 jobs:
   build:
     name: Hello world action
-    runs-on: ubuntu-latest # useful environment to we can run a simple bash    
+    runs-on: ubuntu-latest     
     steps:
     - uses: actions/checkout@master
     - name: hello-world
