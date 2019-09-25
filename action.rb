@@ -1,13 +1,30 @@
-require 'octokit'
 
-repo = ENV["GITHUB_REPOSITORY"]
-label = ENV["LABEL"]
+require "octokit"
+require "json"
 
-client = Octokit::Client.new(:access_token => ENV["GITHUB_TOKEN"])
-client.auto_paginate = true
+# Each Action has an event passed to it.
+event = JSON.parse(File.read(ENV['GITHUB_EVENT_PATH']))
+comment = event["comment"]["body"]
+org = "github-craftwork"
+team_id = 3414353
 
-open_issues = client.list_issues(repo, { :labels =>  label})
+puts "---------------------BEGIN----------------------------"
 
-open_issues.each do |issue|
-  client.close_issue(repo, issue.number)
+# Use GITHUB_TOKEN to interact with the GitHub API
+client = Octokit::Client.new(access_token: ENV['GITHUB_TOKEN'])
+
+if comment.include?(".invite") && comment.split().length == 2
+  cmd, handle = comment.split
+  
+  user = handle.tr('@', '')
+  
+  puts "USER: #{user}"
+
+  exit(78) if client.organization_member?(org, user)
+  
+  client.add_team_membership(team_id, user)
 end
+
+puts "-----------------------END--------------------------"
+
+puts "Action succesfully ran"
