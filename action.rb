@@ -6,7 +6,7 @@ event = JSON.parse(File.read(ENV['GITHUB_EVENT_PATH']))
 comment = event["comment"]["body"]
 org = "github-craftwork"
 team_id = 3414353
-commenter = ["comment"]["user"]["login"]
+commenter = event["comment"]["user"]["login"]
 
 puts "-------------------------------------------------"
 
