@@ -1,10 +1,10 @@
 FROM andrius/alpine-ruby
 
 # Labels for GitHub to read your action
-LABEL "com.github.actions.name"="Close issues with label"
-LABEL "com.github.actions.description"="This is an Action that closes issues based on the provided label"
+LABEL "com.github.actions.name"="Invite collaborator based on a comment"
+LABEL "com.github.actions.description"="This actions will check for comments on issues for eight ".invite me" or ".invite @handle"."
 # Here are all of the available icons: https://feathericons.com/
-LABEL "com.github.actions.icon"="play"
+LABEL "com.github.actions.icon"="send"
 # And all of the available colors: https://developer.github.com/actions/creating-github-actions/creating-a-docker-container/#label
 LABEL "com.github.actions.color"="gray-dark"
 
