@@ -1,4 +1,3 @@
-
 require "octokit"
 require "json"
 
@@ -7,8 +6,9 @@ event = JSON.parse(File.read(ENV['GITHUB_EVENT_PATH']))
 comment = event["comment"]["body"]
 org = "github-craftwork"
 team_id = 3414353
+commenter = ["comment"]["user"]["login"]
 
-puts "---------------------BEGIN----------------------------"
+puts "-------------------------------------------------"
 
 # Use GITHUB_TOKEN to interact with the GitHub API
 client = Octokit::Client.new(access_token: ENV['GITHUB_TOKEN'])
@@ -16,7 +16,7 @@ client = Octokit::Client.new(access_token: ENV['GITHUB_TOKEN'])
 if comment.include?(".invite") && comment.split().length == 2
   cmd, handle = comment.split
   
-  user = handle.tr('@', '')
+  user = handle == "me" ? commenter : handle.tr('@', '')
   
   puts "USER: #{user}"
 
@@ -25,6 +25,6 @@ if comment.include?(".invite") && comment.split().length == 2
   client.add_team_membership(team_id, user)
 end
 
-puts "-----------------------END--------------------------"
+puts "-------------------------------------------------"
 
 puts "Action succesfully ran"
