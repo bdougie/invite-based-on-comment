@@ -11,7 +11,7 @@ _**Note:** due to permission limitations for contributors without write access, 
 on:
   issue_comment:
     types: [created]
-name: A workflow for my Hello World Action
+name: Invite a new collaborator
 
 jobs:
   build:
@@ -23,4 +23,5 @@ jobs:
       uses: bdougie/invite-based-on-comment@master
       env:
         GITHUB_TOKEN: ${{ secrets.BDOUGIE_TOKEN }}
+        TEAM_ID: 123456
 ```
