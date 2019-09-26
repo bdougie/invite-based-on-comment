@@ -24,4 +24,5 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.BDOUGIE_TOKEN }}
         TEAM_ID: 123456
+        ORG: 'github-craftwork'
 ```
