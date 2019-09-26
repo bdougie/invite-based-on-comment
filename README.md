@@ -11,7 +11,7 @@ An ORG name and Team Id is needed. You can find your Team Id by using curl.
 curl -H "Authorization: token <very-long-access-token>" https://api.github.com/orgs/<org-name>/teams
 ```
 
-_**Note:** due to permission limitations for contributors without write access, the default `secrets.GITHUB_TOKEN` cannot be leverage for this action. You will need to provide you by setting your own `GITHUB_TOKEN` environment variable._
+_**Note:** due to permission limitations for contributors without write access, the default `secrets.GITHUB_TOKEN` cannot be leveraged for this action. You will need to provide your own GitHub token to the `GITHUB_TOKEN` environment variable._
 
 ```yml
 on:
