@@ -15,11 +15,11 @@ name: Invite a new collaborator
 
 jobs:
   build:
-    name: Hello world action
+    name: Invite contributor to the Org
     runs-on: ubuntu-latest     
     steps:
     - uses: actions/checkout@master
-    - name: hello-world
+    - name: invite-contributor
       uses: bdougie/invite-based-on-comment@master
       env:
         GITHUB_TOKEN: ${{ secrets.BDOUGIE_TOKEN }}
