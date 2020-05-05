@@ -3,12 +3,11 @@ require "json"
 
 # Each Action has an event passed to it.
 event = JSON.parse(File.read(ENV['GITHUB_EVENT_PATH']))
+puts event.inspect
+
 comment = event["comment"]["body"]
 org = ENV['ORG']
 team_id = ENV['TEAM_ID']
-
-puts ENV['GITHUB_EVENT_PATH']
-
 
 commenter = event["comment"]["user"]["login"]
 
