@@ -6,7 +6,12 @@ event = JSON.parse(File.read(ENV['GITHUB_EVENT_PATH']))
 comment = event["comment"]["body"]
 org = ENV['ORG']
 team_id = ENV['TEAM_ID']
+
+puts event
+
+
 commenter = event["comment"]["user"]["login"]
+
 
 puts "-------------------------------------------------"
 
