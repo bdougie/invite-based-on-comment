@@ -7,7 +7,7 @@ comment = event["comment"]["body"]
 org = ENV['ORG']
 team_id = ENV['TEAM_ID']
 
-puts event
+puts ENV['GITHUB_EVENT_PATH']
 
 
 commenter = event["comment"]["user"]["login"]
