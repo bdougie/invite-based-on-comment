@@ -3,7 +3,7 @@ This is an Action that invites collaborators to a team based comment.
 
 ## Usage
 
-This actions will check for comments on issues for eight ".invite me" or ".invite @handle".
+This actions will check for comments on issues for eight ".invite me" or ".invite @handle". You can set SELF_INVITE to false to disable ".invite me" checks ( defaults to true )
 
 An ORG name and Team Id is needed. You can find your Team Id by using curl.
 
@@ -31,4 +31,5 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.BDOUGIE_TOKEN }}
         TEAM_ID: 123456
         ORG: 'github-craftwork'
+        SELF_INVITE: true 
 ```
