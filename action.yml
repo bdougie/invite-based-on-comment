@@ -1,0 +1,7 @@
+
+name: invite-based-on-comment
+description: This is an Action that invites collaborators to a team based comment.
+author: Brian Douglas
+branding:
+  icon: 'thumbs-up'
+  color: 'white'
